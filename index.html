@@ -42,10 +42,6 @@
 <input type="submit" value="Plot" />
 </form>
 <div id="plot"></div>
-<p>Plots the probability of observing no changes between two sequences 
-of a given length (N) separated by the given number of days (x) with a given 
-rate of evolution per site per year (mu).</p>
-<p>This is computed as the (1 - [mu * x / 365]) ^ N</p>
 </body>
 
 <script type="text/javascript">
@@ -164,8 +160,8 @@ function getData(data, genomeLength, ratePerSitePerYear, numberOfDays) {
 // Sample from a normal distribution with mean 0, stddev 1.
 function probabilityNoChange(days, genomeLength, ratePerSitePerYear) {
     
-    var ratePerSite = (ratePerSitePerYear / 365) * days;
-    var x = 1.0 - ratePerSite;
+    var ratePerDay = (ratePerSitePerYear / 365);
+    var x = Math.exp(-ratePerDay * days);
     var y = Math.pow(x, genomeLength);
     
     return y;
