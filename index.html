@@ -109,9 +109,7 @@
 		x.domain(d3.extent(data, function(d) {
 			return d.q;
 		}));
-		y.domain(d3.extent(data, function(d) {
-			return d.p;
-		}));
+		y.domain([0,1]);
 
 		svg.append("g")
 			.attr("class", "x axis")
