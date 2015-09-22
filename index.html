@@ -10,12 +10,14 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <style type="text/css">
     body {
-        font: 10px sans-serif;
+    	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight: 300;
     }
     .axis path,
     .axis line {
         fill: none;
         stroke: #000;
+        stroke-width: 1px;
         shape-rendering: crispEdges;
     }
     /*.x.axis path {
@@ -24,7 +26,7 @@
     .line {
         fill: none;
         stroke: steelblue;
-        stroke-width: 1.5px;
+        stroke-width: 3px;
     }
     </style>
 </head>
@@ -72,8 +74,8 @@ rate of evolution per site per year (mu).</p>
 		var margin = {
 				top: 20,
 				right: 20,
-				bottom: 40,
-				left: 50
+				bottom: 50,
+				left: 60
 			},
 			width = 960 - margin.left - margin.right,
 			height = 500 - margin.top - margin.bottom;
@@ -122,7 +124,7 @@ rate of evolution per site per year (mu).</p>
 
 		// Add the text label for the x axis
 		svg.append("text")
-			.attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 10) + ")")
+			.attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + margin.bottom - 30) + ")")
 			.style("text-anchor", "middle")
 			.text("Days");
 
